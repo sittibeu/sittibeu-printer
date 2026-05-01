@@ -27,9 +27,10 @@
       overflow-x: hidden;
     }
 
+    /* ===== HERO ===== */
     .hero {
       text-align: center;
-      padding: 56px 24px 40px;
+      padding: 56px 24px 32px;
     }
 
     .hero-badge {
@@ -75,22 +76,126 @@
       font-weight: 700;
       padding: 10px 28px;
       border-radius: 999px;
-      box-shadow: none;
     }
 
-    .form-wrap {
+    /* ===== TYPE SELECT SCREEN ===== */
+    .type-wrap {
       max-width: 580px;
       margin: 0 auto;
       padding: 0 20px 60px;
     }
 
+    .type-label {
+      text-align: center;
+      font-family: 'Kanit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 16px;
+    }
+
+    .type-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .type-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .type-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .type-card:active { transform: translateY(0); }
+
+    .type-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: rgba(245,197,24,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .type-info strong {
+      display: block;
+      font-family: 'Kanit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .type-info span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .type-arrow {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    /* ===== FORM WRAP ===== */
+    .form-wrap {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      display: none;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 13px;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .back-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .form-type-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-family: 'Kanit', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    /* ===== BLOCK ===== */
     .block {
-      box-shadow: 0 2px 20px rgba(0,0,0,0.6);
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 24px 20px;
       margin-bottom: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
     }
 
     .block-header {
@@ -103,7 +208,7 @@
     .block-icon {
       width: 36px; height: 36px;
       border-radius: 10px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(245,197,24,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -118,10 +223,8 @@
       color: var(--accent);
     }
 
-    .field {
-      margin-bottom: 14px;
-    }
-
+    /* ===== FIELD ===== */
+    .field { margin-bottom: 14px; }
     .field:last-child { margin-bottom: 0; }
 
     .field label {
@@ -152,21 +255,21 @@
     }
 
     .field select {
-      color: #888888;
       cursor: pointer;
+      color: #888888;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
       padding-right: 36px;
     }
 
-.field select option { background: #1c1f28; color: #888888; }
+    .field select option { background: #1c1f28; color: #888888; }
 
     .field input:focus,
     .field textarea:focus,
     .field select:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 3px rgba(245,197,24,0.1);
     }
 
     .field input::placeholder,
@@ -185,6 +288,7 @@
       box-shadow: 0 0 0 3px rgba(255,107,53,0.12);
     }
 
+    /* ===== SUBMIT ===== */
     .submit-btn {
       width: 100%;
       background: var(--accent);
@@ -208,6 +312,17 @@
 
     .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
+    .note-text {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      padding: 0 8px;
+      line-height: 1.7;
+    }
+
+    /* ===== SUCCESS ===== */
     .success-box {
       display: none;
       flex-direction: column;
@@ -248,6 +363,7 @@
 </head>
 <body>
 
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-badge">📝 บริการปริ้นรายงาน</div>
     <h1>บิ่วบิ๋ว<br/><span>Print</span></h1>
@@ -255,8 +371,47 @@
     <div class="price-pill">🖨️ แผ่นละ 35 บาท</div>
   </div>
 
-  <div class="form-wrap">
+  <!-- TYPE SELECT -->
+  <div class="type-wrap" id="typeSelect">
+    <div class="type-label">เลือกประเภทรายงาน</div>
+    <div class="type-cards">
+
+      <div class="type-card" onclick="showForm('personal')">
+        <div class="type-icon">👤</div>
+        <div class="type-info">
+          <strong>รายงานชี้แจงส่วนตัว</strong>
+          <span>รายงานเรื่องส่วนบุคคล เช่น ระเบียบส่วนตัว</span>
+        </div>
+        <div class="type-arrow">›</div>
+      </div>
+
+      <div class="type-card" onclick="showForm('group')">
+        <div class="type-icon">👥</div>
+        <div class="type-info">
+          <strong>รายงานชี้แจงส่วนรวม</strong>
+          <span>รายงานเวรประจำจุด / ระเบียบห้อง</span>
+        </div>
+        <div class="type-arrow">›</div>
+      </div>
+
+      <div class="type-card" onclick="showForm('good')">
+        <div class="type-icon">⭐</div>
+        <div class="type-info">
+          <strong>รายงานความดี</strong>
+          <span>ตั้งใจปฏิบัติโทษ / ช่วยเหลืองาน</span>
+        </div>
+        <div class="type-arrow">›</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-wrap" id="formWrap">
+
     <div id="theForm">
+      <button class="back-btn" onclick="goBack()">← กลับ</button>
+      <div class="form-type-badge" id="typeBadge"></div>
 
       <!-- BLOCK 1: ข้อมูลผู้สั่ง -->
       <div class="block">
@@ -306,55 +461,20 @@
         </div>
       </div>
 
-      <!-- BLOCK 2: รายละเอียดรายงาน -->
-      <div class="block">
+      <!-- BLOCK 2: รายละเอียดรายงาน (dynamic per type) -->
+      <div class="block" id="block2">
         <div class="block-header">
           <div class="block-icon">📋</div>
           <div class="block-title">รายละเอียดรายงาน</div>
         </div>
-
-        <div class="field">
-          <label>เรียนใคร</label>
-          <input type="text" id="to_whom" placeholder="เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒" />
-        </div>
-
-        <div class="field">
-          <label>รายงานชี้แจงอะไร</label>
-          <input type="text" id="topic" placeholder="เช่น ระเบียบส่วนตัวไม่เรียบร้อย" />
-        </div>
-
-        <div class="field">
-          <label>กล่าวคือ</label>
-          <input type="text" id="detail" placeholder="เช่น ผ้าห่มยับ / หมอนเหลือง" />
-        </div>
-
-        <div class="field">
-          <label>วันที่ตรวจพบ</label>
-          <input type="date" id="incident_date" />
-        </div>
-
-        <div class="row-2">
-          <div class="field">
-            <label>ถูกตรวจพบโดย</label>
-            <input type="text" id="found_by" placeholder="เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒" />
-          </div>
-          <div class="field">
-            <label>ตรวจพบเวลา</label>
-            <input type="text" id="found_time" placeholder="เช่น ๑๒.๐๐" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label>ต้องการชี้แจงว่าอะไร</label>
-          <textarea id="reason" rows="3" placeholder="ระบุเหตุผลหรือคำชี้แจงที่ต้องการ..."></textarea>
-        </div>
+        <div id="dynamicFields"></div>
       </div>
 
       <button class="submit-btn" onclick="handleSubmit()">ส่งคำสั่ง — 35 บาท →</button>
 
     </div>
 
-    <p style="text-align:center; font-size:14px; color:#555; margin-top:12px; margin-bottom:4px; padding: 0 8px; line-height:1.7;">
+    <p class="note-text">
       📲 รับออเดอร์แล้ว! จะทัก LINE ยืนยันออเดอร์พร้อมราคาให้เร็วๆ นี้เลยครับ 🔥<br/>
       <strong>ชำระหลังได้รับเอกสาร — ไม่ต้องจ่ายก่อนเลย</strong>
     </p>
@@ -373,25 +493,126 @@
   </footer>
 
   <script>
-    const WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1498942462771728384/ndUDSLM6kmLbuN308VvQWVjsUngfdP46mLMQCZ3WKgvFGhb5RRlYaYUmfQ0yi0rylkvB';
+    const WEBHOOKS = {
+      personal: 'https://discordapp.com/api/webhooks/1499599500942114917/UKFsWUt9bx5Fc5w4T0AXaSLcRl5Vio54awNsAJs5A7FQtZD2JwBfHoebTTqSzaC_0KJ0',
+      group:    'https://discordapp.com/api/webhooks/1499598940629241972/l_mn9JRn_wlwqISjvo4gaNZmiayiVsm3uboDap7LYzSe8ozG3uFxRe8sW2KomJi2GXSo',
+      good:     'https://discordapp.com/api/webhooks/1499599689127821462/HCGyVfvuEUn7d1MAb_LAySC6TTJkR1lPzII59FD52RnElBGaBK05h73DKX8RXYssyk1U',
+    };
 
-    const REQUIRED = [
-      { id: 'order_num',     label: 'เลขที่' },
-      { id: 'name',          label: 'ชื่อ-นามสกุล' },
-      { id: 'squad',         label: 'หมวด' },
-      { id: 'platoon',       label: 'ตอน' },
-      { id: 'to_whom',       label: 'เรียนใคร' },
-      { id: 'topic',         label: 'รายงานชี้แจงอะไร' },
-      { id: 'detail',        label: 'กล่าวคือ' },
-      { id: 'incident_date', label: 'วันที่ตรวจพบ' },
-      { id: 'found_by',      label: 'ถูกตรวจพบโดย' },
-      { id: 'found_time',    label: 'ตรวจพบเวลา' },
-      { id: 'reason',        label: 'ต้องการชี้แจงว่าอะไร' },
+    const TYPE_LABELS = {
+      personal: '👤 รายงานชี้แจงส่วนตัว',
+      group:    '👥 รายงานชี้แจงส่วนรวม',
+      good:     '⭐ รายงานความดี'
+    };
+
+    let currentType = '';
+
+    function showForm(type) {
+      currentType = type;
+      renderDynamicFields(type);
+      REQUIRED = [
+        ...REQUIRED_BASE,
+        ...FIELDS[type].map(f => ({ id: f.id, label: f.label }))
+      ];
+      document.getElementById('typeSelect').style.display = 'none';
+      document.getElementById('formWrap').style.display  = 'block';
+      document.getElementById('typeBadge').textContent   = TYPE_LABELS[type];
+      // rebind error clear listeners for new fields
+      document.querySelectorAll('input, textarea, select').forEach(el => {
+        el.addEventListener('input',  () => el.classList.remove('err'));
+        el.addEventListener('change', () => el.classList.remove('err'));
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goBack() {
+      document.getElementById('formWrap').style.display  = 'none';
+      document.getElementById('typeSelect').style.display = 'block';
+      document.getElementById('theForm').style.display   = 'block';
+      document.getElementById('successBox').style.display = 'none';
+      document.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+      document.querySelectorAll('.err').forEach(el => el.classList.remove('err'));
+      const btn = document.querySelector('.submit-btn');
+      btn.textContent = 'ส่งคำสั่ง — 35 บาท →';
+      btn.disabled = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ฟิลด์ที่ใช้ร่วมกันทุกประเภท (block 1)
+    const REQUIRED_BASE = [
+      { id: 'order_num', label: 'เลขที่' },
+      { id: 'name',      label: 'ชื่อ-นามสกุล' },
+      { id: 'squad',     label: 'หมวด' },
+      { id: 'platoon',   label: 'ตอน' },
     ];
+
+    // ฟิลด์ dynamic ของแต่ละประเภท
+    const FIELDS = {
+      personal: [
+        { id: 'to_whom',       label: 'เรียนใคร',               type: 'input',    placeholder: 'เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒' },
+        { id: 'topic',         label: 'รายงานชี้แจงอะไร',       type: 'input',    placeholder: 'เช่น ระเบียบส่วนตัวไม่เรียบร้อย' },
+        { id: 'detail',        label: 'กล่าวคือ',                type: 'input',    placeholder: 'เช่น ผ้าห่มยับ / หมอนเหลือง' },
+        { id: 'incident_date', label: 'วันที่ตรวจพบ',            type: 'date',     placeholder: '' },
+        { id: 'found_by',      label: 'ถูกตรวจพบโดย',           type: 'input',    placeholder: 'เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒', half: true },
+        { id: 'found_time',    label: 'ตรวจพบเวลา',              type: 'input',    placeholder: 'เช่น ๑๒.๐๐', half: true },
+        { id: 'reason',        label: 'ต้องการชี้แจงว่าอะไร',   type: 'textarea', placeholder: 'ระบุเหตุผลหรือคำชี้แจงที่ต้องการ...' },
+      ],
+      group: [
+        { id: 'to_whom',       label: 'เรียนใคร',               type: 'input',    placeholder: 'เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒' },
+        { id: 'topic',         label: 'รายงานชี้แจงอะไร',       type: 'input',    placeholder: 'เช่น ความสะอาดส่วนรวม ( ห้อง ๔๑๗ ) / เวรประจำจุด ( เกาะกลางกองร้อย )' },
+        { id: 'detail',        label: 'กล่าวคือ',                type: 'input',    placeholder: 'เช่น มีขยะหลังห้อง / ไม่ปิดไฟ / ขี้นกราวบันได' },
+        { id: 'reason',        label: 'ต้องการชี้แจงว่าอะไร',   type: 'textarea', placeholder: 'ระบุเหตุผลหรือคำชี้แจงที่ต้องการ...' },
+        { id: 'incident_date', label: 'วันที่ตรวจพบ',            type: 'date',     placeholder: '' },
+        { id: 'found_by',      label: 'ถูกตรวจพบโดย',           type: 'input',    placeholder: 'เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒', half: true },
+        { id: 'found_time',    label: 'ตรวจพบเวลา',              type: 'input',    placeholder: 'เช่น ๑๒.๐๐', half: true },
+        { id: 'members',       label: 'แนบชื่อสมาชิก',           type: 'textarea', placeholder: 'เช่น ขันตี อุตสาหะ / สมชาย รักชาติ' },
+      ],
+      good: [
+        { id: 'to_whom',       label: 'เรียนใคร',               type: 'input',    placeholder: 'เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒' },
+        { id: 'topic',         label: 'รายงานความดีกรณีอะไร',   type: 'input',    placeholder: 'เช่น กรณีตั้งใจปฏิบัติโทษ' },
+        { id: 'incident_date', label: 'วันที่',                  type: 'date',     placeholder: '' },
+        { id: 'found_by',      label: 'ถูกตรวจพบโดย',           type: 'input',    placeholder: 'เช่น ผู้ช่วย ผบ.มว.๑ ร้อย ๒ / ผบ.มว. ร้อย ๒', half: true },
+        { id: 'found_time',    label: 'เวลา',                    type: 'input',    placeholder: 'เช่น ๑๒.๐๐', half: true },
+      ],
+    };
+
+    function renderDynamicFields(type) {
+      const container = document.getElementById('dynamicFields');
+      const fields = FIELDS[type];
+      let html = '';
+      let i = 0;
+      while (i < fields.length) {
+        const f = fields[i];
+        // ถ้าเป็น half ให้จับคู่ row-2
+        if (f.half && fields[i+1] && fields[i+1].half) {
+          html += `<div class="row-2">`;
+          html += fieldHTML(f);
+          html += fieldHTML(fields[i+1]);
+          html += `</div>`;
+          i += 2;
+        } else {
+          html += fieldHTML(f);
+          i++;
+        }
+      }
+      container.innerHTML = html;
+    }
+
+    function fieldHTML(f) {
+      if (f.type === 'textarea') {
+        return `<div class="field"><label>${f.label}</label><textarea id="${f.id}" rows="3" placeholder="${f.placeholder}"></textarea></div>`;
+      } else if (f.type === 'date') {
+        return `<div class="field"><label>${f.label}</label><input type="date" id="${f.id}" /></div>`;
+      } else {
+        return `<div class="field"><label>${f.label}</label><input type="text" id="${f.id}" placeholder="${f.placeholder}" /></div>`;
+      }
+    }
+
+    let REQUIRED = [];
 
     async function handleSubmit() {
       let hasError = false;
-
       document.querySelectorAll('.err').forEach(el => el.classList.remove('err'));
 
       for (const f of REQUIRED) {
@@ -406,14 +627,10 @@
 
       const get = id => document.getElementById(id).value.trim() || '-';
 
-      // แปลงเลขอารบิกเป็นเลขไทย
       const toThai = str => String(str).replace(/[0-9]/g, d => '๐๑๒๓๔๕๖๗๘๙'[d]);
-
-      // แปลงหมวด/ตอน เช่น "หมวด 3" → "หมวด ๓"
       const thaiSquad   = toThai(get('squad'));
       const thaiPlatoon = toThai(get('platoon'));
 
-      // แปลงวันที่ เช่น "2025-04-29" → "๒๙ เมษายน ๒๕๖๘"
       const thaiMonths = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน',
                           'กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
       let thaiDate = '-';
@@ -421,25 +638,44 @@
       if (rawDate !== '-') {
         const [y, m, d] = rawDate.split('-');
         const buddhistYear = parseInt(y) + 543;
-        thaiDate = `${toThai(parseInt(d))} ${thaiMonths[parseInt(m) - 1]} ${toThai(buddhistYear)}`;
+        thaiDate = `${toThai(parseInt(d))} ${thaiMonths[parseInt(m)-1]} ${toThai(buddhistYear)}`;
       }
 
+      const typeColors = { personal: 0xf5c518, group: 0x5865f2, good: 0x22c55e };
+
+      // สร้าง embed fields จาก FIELDS dynamic
+      const safeGet = id => {
+        const el = document.getElementById(id);
+        return el ? el.value.trim() || '-' : null;
+      };
+
+      const iconMap = {
+        to_whom: '📨', topic: '📋', detail: '📝',
+        incident_date: '📅', found_by: '🔍', found_time: '⏰', reason: '💬', members: '👥'
+      };
+
+      const embedFields = [
+        { name: '🔢 เลขที่',       value: get('order_num'), inline: true },
+        { name: '👤 ชื่อ-นามสกุล', value: get('name'),      inline: true },
+        { name: '🏫 หมวด',          value: thaiSquad,        inline: true },
+        { name: '📌 ตอน',           value: thaiPlatoon,      inline: true },
+      ];
+
+      FIELDS[currentType].forEach(f => {
+        const val = f.id === 'incident_date' ? thaiDate : (safeGet(f.id) || '-');
+        if (val !== null) {
+          embedFields.push({
+            name: `${iconMap[f.id] || '•'} ${f.label}`,
+            value: val,
+            inline: !!f.half
+          });
+        }
+      });
+
       const embed = {
-        title: '🖨️ ออเดอร์ใหม่! — บิ่วบิ๋ว Print',
-        color: 0xf5c518,
-        fields: [
-          { name: '🔢 เลขที่',                 value: get('order_num'),     inline: true  },
-          { name: '👤 ชื่อ-นามสกุล',          value: get('name'),          inline: true  },
-          { name: '🏫 หมวด',                   value: thaiSquad,            inline: true  },
-          { name: '📌 ตอน',                    value: thaiPlatoon,          inline: true  },
-          { name: '📨 เรียนใคร',                value: get('to_whom'),       inline: false },
-          { name: '📋 รายงานชี้แจงอะไร',       value: get('topic'),         inline: false },
-          { name: '📝 กล่าวคือ',               value: get('detail'),        inline: false },
-          { name: '📅 วันที่ตรวจพบ',         value: thaiDate,             inline: true  },
-          { name: '⏰ ตรวจพบเวลา',             value: get('found_time'),    inline: true  },
-          { name: '🔍 ถูกตรวจพบโดย',          value: get('found_by'),      inline: false },
-          { name: '💬 ต้องการชี้แจงว่าอะไร',  value: get('reason'),        inline: false },
-        ],
+        title: `🖨️ ออเดอร์ใหม่! — ${TYPE_LABELS[currentType]}`,
+        color: typeColors[currentType],
+        fields: embedFields,
         footer: { text: `💰 ค่าบริการ 35 บาท • ${new Date().toLocaleString('th-TH')}` }
       };
 
@@ -448,13 +684,13 @@
       btn.disabled = true;
 
       try {
-        await fetch(WEBHOOK_URL, {
+        await fetch(WEBHOOKS[currentType], {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ embeds: [embed] })
         });
 
-        document.getElementById('theForm').style.display = 'none';
+        document.getElementById('theForm').style.display    = 'none';
         document.getElementById('successBox').style.display = 'flex';
 
       } catch (err) {
